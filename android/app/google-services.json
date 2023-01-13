@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "333787641389",
+    "project_id": "news-api-app-cb6ab",
+    "storage_bucket": "news-api-app-cb6ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333787641389:android:200bdc33c275fcd8156aa4",
+        "android_client_info": {
+          "package_name": "com.mosfeqanik.news_app_with_getx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "333787641389-d5qnlpooh0d5mne1n0ueakf8haj8lbfd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjlsploUMLxU0K17QbUDWf7QKeXefddPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "333787641389-d5qnlpooh0d5mne1n0ueakf8haj8lbfd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

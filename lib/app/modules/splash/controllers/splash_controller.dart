@@ -1,23 +1,24 @@
 import 'package:get/get.dart';
+import 'package:news_app_with_getx/app/routes/app_pages.dart';
+
+import '../../../utils/memory_management.dart';
+import '../../../utils/shared_pref_keys.dart';
 
 class SplashController extends GetxController {
+  checkTokenAvability() {
+    print(
+        "anik -----> ${SharedPreferencesRepository.getString(SharedPrefKeys.token)}");
+    var token = SharedPreferencesRepository.getString(SharedPrefKeys.token);
+    if (token == 'DEFAULT_VALUE' || token == '') {
+      Get.offNamed(Routes.LOGIN);
+    } else {
+      Get.offNamed(Routes.HOME);
+    }
+  }
 
-
-  final count = 0.obs;
   @override
   void onInit() {
+    Future.delayed(const Duration(seconds: 5), checkTokenAvability);
     super.onInit();
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

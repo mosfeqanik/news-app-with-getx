@@ -1,0 +1,19 @@
+{
+    "status": "ok",
+    "totalResults": 35,
+    "articles": [
+        {
+            "source": {
+                "id": null,
+                "name": "CNBC"
+            },
+            "author": "Tanaya Macheel, Samantha Subin",
+            "title": "S&P 500 falls slightly on Friday, but heads for its second winning week in a row - CNBC",
+            "description": "All of the major indexes climbed into the green in the afternoon after beginning the day markedly in the red.",
+            "url": "https://www.cnbc.com/2023/01/12/stock-market-futures-open-to-close-news.html",
+            "urlToImage": "https://image.cnbcfm.com/api/v1/image/107173796-1672845713038-gettyimages-1454198460-032a1909_edd7d6c1-beaf-44b2-9c8f-00f141ca0404.jpeg?v=1673621524&w=1920&h=1080",
+            "publishedAt": "2023-01-13T18:35:00Z",
+            "content": "Stocks gyrated Friday as investors digested bank earnings, but the S&amp;P 500 remained on track for its best week since November and second winning week in a row as investors bet inflation would eas… [+2490 chars]"
+        }
+    ]
+}

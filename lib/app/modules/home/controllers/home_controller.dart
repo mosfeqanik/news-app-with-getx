@@ -1,23 +1,19 @@
 import 'package:get/get.dart';
 
+import '../../../utils/memory_management.dart';
+import '../providers/topheadlines_provider.dart';
+import '../topheadlines_model.dart';
+
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+
+  TopheadlinesProvider topheadlinesProvider =TopheadlinesProvider();
+  var getTopHeadlines = GetTopHeadlines().obs;
+
+  getTopheadLines(){
+
   }
-
-  @override
-  void onReady() {
-    super.onReady();
+  logout(){
+    SharedPreferencesRepository.clear();
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
