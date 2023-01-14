@@ -12,7 +12,8 @@ class LoginController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final auth = FirebaseAuth.instance;
-
+  var isSignUpButtonClick = false.obs;
+  String? loggedInEmail;
   loginFunc() async {
     if (emailController.text.isEmpty && emailController.text.isEmpty) {
       Get.snackbar(
@@ -29,6 +30,9 @@ class LoginController extends GetxController {
               emailController.text.isNotEmpty) {
             SharedPreferencesRepository.SetString(
                 SharedPrefKeys.token, "value");
+            loggedInEmail = FirebaseAuth.instance.currentUser?.email;
+            SharedPreferencesRepository.SetString(
+                SharedPrefKeys.userEmail, loggedInEmail!);
             Get.snackbar(
                 backgroundColor: Colors.green,
                 "Hello",
@@ -44,7 +48,46 @@ class LoginController extends GetxController {
           }
         }
       } catch (e) {
-        print(e);
+        print("anik--> $e");
+      }
+    }
+  }
+
+  registerFunc() async {
+    if (emailController.text.isEmpty && emailController.text.isEmpty) {
+      Get.snackbar(
+          backgroundColor: Colors.red,
+          "oops",
+          "input data is missing",
+          colorText: Colors.white);
+    } else {
+      try {
+        final user = await auth.createUserWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text);
+        if (user != null) {
+          if (emailController.text.isNotEmpty &&
+              emailController.text.isNotEmpty) {
+            SharedPreferencesRepository.SetString(
+                SharedPrefKeys.token, "value");
+            loggedInEmail = FirebaseAuth.instance.currentUser?.email;
+            SharedPreferencesRepository.SetString(
+                SharedPrefKeys.userEmail, loggedInEmail!);
+            Get.snackbar(
+                backgroundColor: Colors.green,
+                "Hello",
+                "Welcome",
+                colorText: Colors.white);
+            Get.offNamed(Routes.HOME);
+          } else {
+            Get.snackbar(
+                backgroundColor: Colors.red,
+                "OOPs",
+                "something is wrong",
+                colorText: Colors.white);
+          }
+        }
+      } catch (e) {
+        print("anik--> $e");
       }
     }
   }

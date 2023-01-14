@@ -14,7 +14,7 @@ class LoginView extends GetView<LoginController> {
       body: SafeArea(
         child: Container(
           width: double.infinity,
-          decoration: HeadingDecoration(),
+          decoration: headingDecoration(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -52,21 +52,35 @@ class LoginView extends GetView<LoginController> {
                   style: TextStyle(color: Colors.grey),
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    controller.loginFunc();
-                  },
-                  child: Container(
-                    height: 50,
-                    margin: const EdgeInsets.symmetric(horizontal: 50),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Colors.cyan),
-                    child: loginButton(),
-                  ),
-                ),
+                controller.isSignUpButtonClick.value
+                    ? GestureDetector(
+                        onTap: () {
+                          controller.registerFunc();
+                        },
+                        child: Container(
+                          height: 50,
+                          margin: const EdgeInsets.symmetric(horizontal: 50),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Colors.cyan),
+                          child: registerButton(),
+                        ),
+                      )
+                    : GestureDetector(
+                        onTap: () {
+                          controller.loginFunc();
+                        },
+                        child: Container(
+                          height: 50,
+                          margin: const EdgeInsets.symmetric(horizontal: 50),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Colors.cyan),
+                          child: loginButton(),
+                        ),
+                      ),
                 const SizedBox(
                   height: 50,
                 ),
@@ -82,12 +96,24 @@ class LoginView extends GetView<LoginController> {
   Column socialMediaInputPart() {
     return Column(
       children: [
+        GestureDetector(
+          onTap: () {
+            controller.isSignUpButtonClick.value = true;
+          },
+          child: Obx(() => Text(
+                controller.isSignUpButtonClick.value ? "Sign In" : "Sign up",
+                style: const TextStyle(color: Colors.grey),
+              )),
+        ),
+        SizedBox(
+          height: 20.h,
+        ),
         const Text(
           "Continue with social media",
           style: TextStyle(color: Colors.grey),
         ),
         const SizedBox(
-          height: 30,
+          height: 10,
         ),
         Row(
           children: <Widget>[
@@ -132,6 +158,15 @@ class LoginView extends GetView<LoginController> {
     return const Center(
       child: Text(
         "Login",
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+
+  Center registerButton() {
+    return const Center(
+      child: Text(
+        "Register",
         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
     );
@@ -192,15 +227,15 @@ class LoginView extends GetView<LoginController> {
       padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <Widget>[
+        children: <Widget>[
           Text(
-            "Login",
-            style: TextStyle(color: Colors.white, fontSize: 40),
+            controller.isSignUpButtonClick.value ? "Register" : "Login",
+            style: const TextStyle(color: Colors.white, fontSize: 40),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          Text(
+          const Text(
             "Welcome Back",
             style: TextStyle(color: Colors.white, fontSize: 18),
           ),
@@ -209,8 +244,8 @@ class LoginView extends GetView<LoginController> {
     );
   }
 
-  BoxDecoration HeadingDecoration() {
-    return BoxDecoration(
+  BoxDecoration headingDecoration() {
+    return const BoxDecoration(
         gradient: LinearGradient(begin: Alignment.topCenter, colors: [
       Colors.lightBlueAccent,
       Colors.blue,
