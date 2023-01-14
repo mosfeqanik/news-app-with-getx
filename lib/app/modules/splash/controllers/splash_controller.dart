@@ -6,8 +6,6 @@ import '../../../utils/shared_pref_keys.dart';
 
 class SplashController extends GetxController {
   checkTokenAvability() {
-    print(
-        "anik -----> ${SharedPreferencesRepository.getString(SharedPrefKeys.token)}");
     var token = SharedPreferencesRepository.getString(SharedPrefKeys.token);
     if (token == 'DEFAULT_VALUE' || token == '') {
       Get.offNamed(Routes.LOGIN);
