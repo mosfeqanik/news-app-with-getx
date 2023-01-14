@@ -1,11 +1,11 @@
-class GetTopheadline {
+class GetTopHeadline {
   String? status;
   int? totalResults;
   List<Articles>? articles;
 
-  GetTopheadline({this.status, this.totalResults, this.articles});
+  GetTopHeadline({this.status, this.totalResults, this.articles});
 
-  GetTopheadline.fromJson(Map<String, dynamic> json) {
+  GetTopHeadline.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     totalResults = json['totalResults'];
     if (json['articles'] != null) {
@@ -36,6 +36,7 @@ class Articles {
   String? urlToImage;
   String? publishedAt;
   String? content;
+  bool? isAddedtoBookmarked;
 
   Articles(
       {this.source,
@@ -45,6 +46,7 @@ class Articles {
       this.url,
       this.urlToImage,
       this.publishedAt,
+      this.isAddedtoBookmarked=false,
       this.content});
 
   Articles.fromJson(Map<String, dynamic> json) {
