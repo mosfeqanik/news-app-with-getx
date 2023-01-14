@@ -23,3 +23,5 @@ dev_dependencies:
 
 # followed get clean MVC 
 #documentation with Dart doc
+flutter pub global activate dartdoc
+flutter pub global run dartdoc .
