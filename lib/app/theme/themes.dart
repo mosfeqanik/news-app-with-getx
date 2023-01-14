@@ -1,9 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'colors.dart';
 
 class Themes {
   Themes._();
+  static final TextStyle richText1TextStyle = TextStyle(
+    color: Colors.white,
+    fontStyle: FontStyle.italic,
+    fontSize: 40.sp,
+  );
+  static final TextStyle ListtileTittleTextStyle =
+  TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w700);
+  static final TextStyle richText2TextStyle = TextStyle(
+      color: Colors.white, fontWeight: FontWeight.bold, fontSize: 50.sp);
+  static final TextStyle dateTextStyle =
+  TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500);
+  static final TextStyle AuthorTextStyle =
+  TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500);
+  static final TextStyle NotextTextStyle =
+  TextStyle(
+      fontSize: 16.sp, fontWeight: FontWeight.w700);
 
   final lightTheme = ThemeData.light().copyWith(
     primaryColor: AppColors.primaryColor,
@@ -42,7 +59,7 @@ class Themes {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        primary: AppColors.primaryColor,
+        backgroundColor: AppColors.primaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),
         ),
@@ -122,13 +139,7 @@ class Themes {
       ),
     ),
   );
-  static const TextStyle richText1TextStyle = TextStyle(
-    color: Colors.white,
-    fontStyle: FontStyle.italic,
-    fontSize: 40,
-  );
-  static const TextStyle richText2TextStyle =
-      TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 50);
+
   final darkTheme = ThemeData.dark().copyWith(
     primaryColor: Colors.grey[900],
     cardColor: Colors.grey[900],
